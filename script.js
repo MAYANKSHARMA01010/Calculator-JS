@@ -20,7 +20,6 @@ function calculate() {
     }
 }
 
-// Light/Dark Mode Toggle
 document.addEventListener("DOMContentLoaded", function () {
     const modeToggle = document.getElementById("mode-toggle");
     const body = document.body;
@@ -28,13 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const display = document.getElementById("display");
     const buttons = document.querySelectorAll("button");
 
-    // Check local storage for mode preference
     if (localStorage.getItem("theme") === "light") {
         body.classList.add("light-mode");
         calculator.classList.add("light-mode");
         display.classList.add("light-mode");
         buttons.forEach(button => button.classList.add("light-mode"));
-        modeToggle.textContent = "🌙"; // Show moon for dark mode
+        modeToggle.textContent = "🌙";
     }
 
     modeToggle.addEventListener("click", function () {
@@ -43,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
         display.classList.toggle("light-mode");
         buttons.forEach(button => button.classList.toggle("light-mode"));
 
-        // Update button icon
         if (body.classList.contains("light-mode")) {
-            modeToggle.textContent = "🌙"; // Show moon when in light mode
+            modeToggle.textContent = "🌙";
             localStorage.setItem("theme", "light");
-        } else {
-            modeToggle.textContent = "☀️"; // Show sun when in dark mode
+        } 
+        else {
+            modeToggle.textContent = "☀️";
             localStorage.setItem("theme", "dark");
         }
     });
